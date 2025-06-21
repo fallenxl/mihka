@@ -8,6 +8,7 @@
   preserveAspectRatio="xMidYMid meet"
   version="1.2"
   class="map-svg"
+  style="pointer-events: auto;"
 >
   <defs>
     <clipPath id="96e933e0c0">
