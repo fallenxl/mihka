@@ -1,0 +1,39 @@
+[
+    {
+        "name": "Floor 3",
+        "description": "The third floor of the building, featuring various rooms and facilities.",
+        "rooms": [
+            {
+                "id": "210",
+                "name": "Classroom 201",
+                "description": "A large room equipped for meetings and presentations.",
+                "category": "classroom"
+            },
+            {
+                "id": "300",
+                "name": "Classroom 300",
+                "description": "A spacious classroom designed for lectures and group work.",
+                "category": "classroom"
+            },
+            {
+                "id": "301",
+                "name": "Classroom 301",
+                "description": "A modern classroom equipped with multimedia facilities.",
+                "category": "classroom"
+            },
+            {
+                "id": "302",
+                "name": "Classroom 302",
+                "description": "A classroom suitable for workshops and collaborative sessions.",
+                "category": "classroom"
+            },
+            {
+                "id": "303",
+                "name": "Classroom 303",
+                "description": "A flexible classroom space for various academic activities.",
+                "category": "classroom"
+            }
+            
+        ]
+    }
+]
