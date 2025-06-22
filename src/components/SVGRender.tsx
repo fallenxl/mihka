@@ -1,69 +1,86 @@
 "use client"
-import { useEffect, useRef, useState } from "react"
+import { getRoomById } from "@/services/room"
+import { useBuildingStore } from "@/store/room.store"
+import { use, useEffect, useRef, useState } from "react"
 
 export function SVGRender({ svg: Map }: { svg: any }) {
   const svgRef = useRef<HTMLDivElement>(null)
   const [svgData, setSvgData] = useState<string>("")
-  const [mounted, setMounted] = useState(false)
+  const {setSelectedRoomById, selectedRoom} = useBuildingStore()
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  useEffect(() => {
-    if (!mounted) return
+ 
     fetch(`/maps/${Map}.svg`)
       .then((response) => response.text())
-      .then((data) => setSvgData(data))
+      .then((data) => 
+        
+        setSvgData(data))
       .catch((error) => {
         console.error("Error loading SVG:", error)
       })
-  }, [Map, mounted])
+  }, [Map])
 
-  useEffect(() => {
-    if (!svgData || !svgRef.current) return
+  const cleanUp = () => {
+    svgRef.current?.querySelectorAll(".room").forEach((element) => {
+      element.classList.remove("room-selected")
+    })
+  }
 
-    const svgElement = svgRef.current.querySelector("svg")
-    if (svgElement) {
-      svgElement.style.pointerEvents = "none"
-      svgElement.style.userSelect = "none"
-      ;(svgElement.style as any).webkitUserSelect = "none"
-      ;(svgElement.style as any).webkitTouchCallout = "none"
-      ;(svgElement.style as any).webkitUserDrag = "none"
 
-      const interactiveElements = svgElement.querySelectorAll("[data-room], .room, .interactive")
-      interactiveElements.forEach((element) => {
-        ;(element as HTMLElement).style.pointerEvents = "auto"
-        ;(element as HTMLElement).style.cursor = "pointer"
-      })
-      console.log(interactiveElements)
+    useEffect(() => {
+  const svgContainer = svgRef.current
+  if (!svgContainer) return
+
+  const onClick = (e: Event) => {
+    const target = e.target as HTMLElement
+    if (!target || !svgContainer.contains(target)) return
+    if (target.classList.contains("room")) {
+      const roomId = target.getAttribute("id")
+      if (roomId) {
+        if( selectedRoom && selectedRoom.id === roomId) {
+          // If the clicked room is already selected, clear the selection
+          setSelectedRoomById("")
+          return
+        }
+        const roomData = getRoomById(roomId)
+        if (roomData) {
+          setSelectedRoomById(roomId)
+        }
+      }
     }
-  }, [svgData])
+  }
 
-  // ✅ Importante: solo renderizar después de montar
-  if (!mounted) return null
+  svgContainer.addEventListener("click", onClick)
+
+  return () => {
+    svgContainer.removeEventListener("click", onClick)
+  }
+}, [svgData])
+
+useEffect(() => {
+    if (selectedRoom && svgRef.current) {
+      cleanUp()
+      const roomElement = svgRef.current.querySelector(`#${selectedRoom.id}`)
+      if (roomElement) {
+        roomElement.classList.add("room-selected")
+      }
+    }
+}, [selectedRoom])
 
   return (
-    <div
-      className="flex items-center justify-center w-full h-full bg-transparent"
-      style={{
-        pointerEvents: "none",
-        userSelect: "none",
-        WebkitUserSelect: "none",
-        WebkitTouchCallout: "none",
-      }}
-    >
+     <>
       <div
         ref={svgRef}
         dangerouslySetInnerHTML={{ __html: svgData }}
-        className="max-w-full max-h-full"
+        className="w-full h-full relative"
         style={{
-          pointerEvents: "none",
+          pointerEvents: "auto",
           userSelect: "none",
           WebkitUserSelect: "none",
           WebkitTouchCallout: "none",
         }}
       />
-    </div>
+     </>
+    
   )
 }

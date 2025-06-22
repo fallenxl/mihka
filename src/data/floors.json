@@ -1,0 +1,73 @@
+[
+    {
+        "name": "Floor 3",
+        "slug": "floor3",
+        "path": "/maps/floor3.svg",
+        "description": "The third floor of the building, featuring various rooms and facilities.",
+        "rooms": [
+            {
+                "id": "r210",
+                "name": "Classroom 210",
+                "description": "A large room equipped for meetings and presentations.",
+                "category": "classroom"
+            },
+            {
+                "id": "r300",
+                "name": "Classroom 300",
+                "description": "A spacious classroom designed for lectures and group work.",
+                "category": "classroom"
+            },
+            {
+                "id": "r301",
+                "name": "Classroom 301",
+                "description": "A modern classroom equipped with multimedia facilities.",
+                "category": "classroom"
+            },
+            {
+                "id": "r302",
+                "name": "Classroom 302",
+                "description": "A classroom suitable for workshops and collaborative sessions.",
+                "category": "classroom"
+            },
+            {
+                "id": "r303",
+                "name": "Classroom 303",
+                "description": "A flexible classroom space for various academic activities.",
+                "category": "classroom"
+            }
+            
+        ]
+    },
+    {
+        "name": "Floor 4",
+        "slug": "floor4",
+        "path": "/maps/floor4.svg",
+        "description": "The fourth floor of the building, featuring additional classrooms and facilities.",
+        "rooms": [
+            {
+                "id": "r400",
+                "name": "Classroom 400",
+                "description": "A large classroom designed for lectures and seminars.",
+                "category": "classroom"
+            },
+            {
+                "id": "r401",
+                "name": "Classroom 401",
+                "description": "A modern classroom with advanced teaching tools.",
+                "category": "classroom"
+            },
+            {
+                "id": "r402",
+                "name": "Classroom 402",
+                "description": "A versatile classroom for group discussions and projects.",
+                "category": "classroom"
+            },
+            {
+                "id": "r403",
+                "name": "Classroom 403",
+                "description": "A classroom equipped for interactive learning experiences.",
+                "category": "classroom"
+            }
+        ]
+    }
+]
