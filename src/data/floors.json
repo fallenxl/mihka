@@ -45,27 +45,9 @@
         "description": "The fourth floor of the building, featuring additional classrooms and facilities.",
         "rooms": [
             {
-                "id": "r400",
-                "name": "Classroom 400",
-                "description": "A large classroom designed for lectures and seminars.",
-                "category": "classroom"
-            },
-            {
                 "id": "r401",
                 "name": "Classroom 401",
                 "description": "A modern classroom with advanced teaching tools.",
-                "category": "classroom"
-            },
-            {
-                "id": "r402",
-                "name": "Classroom 402",
-                "description": "A versatile classroom for group discussions and projects.",
-                "category": "classroom"
-            },
-            {
-                "id": "r403",
-                "name": "Classroom 403",
-                "description": "A classroom equipped for interactive learning experiences.",
                 "category": "classroom"
             }
         ]

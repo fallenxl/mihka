@@ -10,12 +10,14 @@ import data from "@/data/floors.json";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RoomInfo } from "@/components/room-info";
 export default function BuildingMapApp() {
-  const [floorSelected, setFloorSelected] = useState<string>("floor3");
+
+  const [floorSelected, setFloorSelected] = useState<string>("floor4");
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
+
   const handleSearchRoom = useCallback((query: string) => {
     if (!query) {
-      setFloorSelected("floor3");
+      setFloorSelected("floor4");
       return;
     }
     const room = data.find((floor) =>
@@ -29,34 +31,14 @@ export default function BuildingMapApp() {
         r.name.toLowerCase().includes(query.toLowerCase())
       );
     } else {
-      setFloorSelected("floor3");
+      setFloorSelected("floor4");
     }
   }, []);
 
   useEffect(() => {
     handleSearchRoom(searchQuery);
   }, [searchQuery, handleSearchRoom]);
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setShowSearch(false);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-  useEffect(() => {
-    if (searchQuery) {
-      const timer = setTimeout(() => {
-        handleSearchRoom(searchQuery);
-      }, 300); // Delay of 300ms before executing the search
-      return () => clearTimeout(timer); // Cleanup the timer on unmount or when searchQuery changes
-    } else {
-      setFloorSelected("floor3");
-    }
-  }, [searchQuery, handleSearchRoom]);
+
 
   return (
     <div className="fixed inset-0 overflow-hidden">
@@ -78,9 +60,11 @@ export default function BuildingMapApp() {
       >
         <Search className="w-4 h-4" />
       </Button>
-      <Select >
-        <SelectTrigger className="w-[150px] z-10 fixed bottom-4 md:top-1/2 left-4 bg-white" value={floorSelected} >
-          <SelectValue placeholder="Floor"  />
+      <Select defaultValue={floorSelected} onValueChange={(value) => setFloorSelected(value)} >
+        <SelectTrigger
+        
+        className="w-[150px] z-10 fixed bottom-4 md:top-1/2 left-4 bg-white">
+          <SelectValue placeholder="Floor" />
         </SelectTrigger>
         <SelectContent >
           {data.map((floor) => (
@@ -157,7 +141,7 @@ export default function BuildingMapApp() {
               wrapperClass="w-full h-full"
               contentClass="w-fit h-fit mx-auto"
             >
-              <div className=" w-screen h-screen ">
+              <div className=" w-screen h-screen flex items-center justify-center relative">
                 <SVGRender svg={floorSelected} />
               </div>
             </TransformComponent>

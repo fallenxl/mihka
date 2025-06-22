@@ -1,74 +1,76 @@
-"use client"
-import { getRoomById } from "@/services/room"
-import { useBuildingStore } from "@/store/room.store"
-import { use, useEffect, useRef, useState } from "react"
+"use client";
+import { getRoomById } from "@/services/room";
+import { useBuildingStore } from "@/store/room.store";
+import { use, useEffect, useRef, useState } from "react";
 
 export function SVGRender({ svg: Map }: { svg: any }) {
-  const svgRef = useRef<HTMLDivElement>(null)
-  const [svgData, setSvgData] = useState<string>("")
-  const {setSelectedRoomById, selectedRoom} = useBuildingStore()
+  const svgRef = useRef<HTMLDivElement>(null);
+  const [svgData, setSvgData] = useState<string>("");
+  const { setSelectedRoomById, selectedRoom } = useBuildingStore();
 
   useEffect(() => {
- 
     fetch(`/maps/${Map}.svg`)
       .then((response) => response.text())
-      .then((data) => 
-        
-        setSvgData(data))
+      .then((data) => setSvgData(data))
       .catch((error) => {
-        console.error("Error loading SVG:", error)
-      })
-  }, [Map])
+        console.error("Error loading SVG:", error);
+      });
+  }, [Map]);
 
   const cleanUp = () => {
     svgRef.current?.querySelectorAll(".room").forEach((element) => {
-      element.classList.remove("room-selected")
-    })
-  }
+      element.classList.remove("room-selected");
+    });
+  };
 
+  useEffect(() => {
+    const svgContainer = svgRef.current;
+    if (!svgContainer) return;
 
-    useEffect(() => {
-  const svgContainer = svgRef.current
-  if (!svgContainer) return
+    const onClick = (e: Event) => {
 
-  const onClick = (e: Event) => {
-    const target = e.target as HTMLElement
-    if (!target || !svgContainer.contains(target)) return
-    if (target.classList.contains("room")) {
-      const roomId = target.getAttribute("id")
-      if (roomId) {
-        if( selectedRoom && selectedRoom.id === roomId) {
-          // If the clicked room is already selected, clear the selection
-          setSelectedRoomById("")
-          return
-        }
-        const roomData = getRoomById(roomId)
-        if (roomData) {
-          setSelectedRoomById(roomId)
+      const target = e.target as HTMLElement;
+      if (!target || !svgContainer.contains(target)) return;
+      if (target.classList.contains("room")) {
+        const roomId = target.getAttribute("id");
+        if (roomId) {
+          if (selectedRoom && selectedRoom.id === roomId) {
+            // If the clicked room is already selected, clear the selection
+            setSelectedRoomById("");
+            return;
+          }
+          const roomData = getRoomById(roomId);
+          if (roomData) {
+            
+            setSelectedRoomById(roomId);
+            cleanUp();
+            target.classList.add("room-selected");
+          }
         }
       }
-    }
-  }
+    };
 
-  svgContainer.addEventListener("click", onClick)
+    svgContainer.addEventListener("click", onClick);
 
-  return () => {
-    svgContainer.removeEventListener("click", onClick)
-  }
-}, [svgData])
+    return () => {
+      svgContainer.removeEventListener("click", onClick);
+      cleanUp();
+    };
 
-useEffect(() => {
+  }, [svgData, Map]);
+
+  useEffect(() => {
     if (selectedRoom && svgRef.current) {
-      cleanUp()
-      const roomElement = svgRef.current.querySelector(`#${selectedRoom.id}`)
+      cleanUp();
+      const roomElement = svgRef.current.querySelector(`#${selectedRoom.id}`);
       if (roomElement) {
-        roomElement.classList.add("room-selected")
+        roomElement.classList.add("room-selected");
       }
     }
-}, [selectedRoom])
+  }, [selectedRoom]);
 
   return (
-     <>
+    <>
       <div
         ref={svgRef}
         dangerouslySetInnerHTML={{ __html: svgData }}
@@ -80,7 +82,6 @@ useEffect(() => {
           WebkitTouchCallout: "none",
         }}
       />
-     </>
-    
-  )
+    </>
+  );
 }
