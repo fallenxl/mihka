@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { SVGRender } from "@/components/SVGRender";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { TransformWrapper, TransformComponent, ReactZoomPanPinchRef } from "react-zoom-pan-pinch";
 import {
   Select,
   SelectContent,
@@ -18,6 +18,7 @@ import { RoomInfo } from "@/components/room-info";
 import { Room, useBuildingStore } from "@/store/room.store";
 
 export default function BuildingMapApp() {
+  const transformRef = useRef<ReactZoomPanPinchRef | null>(null);
   const {
     floors,
     selectedFloor,
@@ -32,12 +33,12 @@ export default function BuildingMapApp() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
 
-const [filteredRooms, setFilteredRooms] = useState<Room[]>([]);
+  const [filteredRooms, setFilteredRooms] = useState<Room[]>([]);
 
-useEffect(() => {
-  const results = getRoomsByQuery(searchQuery);
-  setFilteredRooms(results);
-}, [searchQuery, getRoomsByQuery]);
+  useEffect(() => {
+    const results = getRoomsByQuery(searchQuery);
+    setFilteredRooms(results);
+  }, [searchQuery, getRoomsByQuery]);
 
   const handleSearchChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -131,12 +132,31 @@ useEffect(() => {
                   className="p-4 cursor-pointer hover:bg-gray-50 transition"
                   onClick={() => {
                     if (roomFloor) {
-                      setSelectedFloorBySlug(roomFloor.slug); // Cambia el floor
-                      setFloorSelected(roomFloor.slug); // Sincroniza estado local
+                      setSelectedFloorBySlug(roomFloor.slug);
+                      setFloorSelected(roomFloor.slug);
+
+                      // Espera un poco a que se renderice el nuevo SVG
+                      setTimeout(() => {
+                        const svgElement = document.getElementById(room.id)
+                        if (svgElement instanceof SVGGraphicsElement && transformRef.current) {
+                          const bbox = svgElement.getBBox();
+
+                          // Centrar en el punto medio del bounding box
+                          const centerX = bbox.x + bbox.width / 2;
+                          const centerY = bbox.y + bbox.height / 1;
+
+                          transformRef.current.setTransform(
+                            -centerX + window.innerWidth / 2,
+                            -centerY + window.innerHeight / 2,
+                            1.5
+                          );
+                        }
+                      }, 300);
                     }
-                    setSelectedRoomById(room.id); // Muestra la room
-                    setShowSearch(false); // Oculta buscador
-                    setSearchQuery(""); // Limpia el input
+
+                    setSelectedRoomById(room.id);
+                    setShowSearch(false);
+                    setSearchQuery("");
                   }}
                 >
                   <div className="font-semibold">{room.name}</div>
@@ -154,6 +174,7 @@ useEffect(() => {
       </Card>
 
       <TransformWrapper
+        ref={transformRef}
         initialScale={1}
         minScale={0.5}
         maxScale={3}
