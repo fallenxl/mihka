@@ -9,7 +9,6 @@ export function RoomInfo() {
 
   useEffect(() => {
     if (selectedRoom) {
-        alert(`Selected Room: ${selectedRoom.name}`);
         setOpenRoomInfo(true);
         }
     }, [selectedRoom, setOpenRoomInfo]);
