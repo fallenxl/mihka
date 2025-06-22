@@ -6,6 +6,7 @@ export interface Room {
   name: string;
   description: string;
   category: string;
+  floor: string;
 }
 
 interface Floor {

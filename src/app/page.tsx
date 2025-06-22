@@ -21,6 +21,7 @@ export default function BuildingMapApp() {
   const transformRef = useRef<ReactZoomPanPinchRef | null>(null);
   const {
     floors,
+    
     selectedFloor,
     setSelectedFloorBySlug,
     getRoomsByQuery,
@@ -128,7 +129,7 @@ export default function BuildingMapApp() {
 
               return (
                 <Card
-                  key={room.id}
+                  key={`room-${room.id}${room.floor}`}
                   className="p-4 cursor-pointer hover:bg-gray-50 transition"
                   onClick={() => {
                     if (roomFloor) {
@@ -159,13 +160,14 @@ export default function BuildingMapApp() {
                     setSearchQuery("");
                   }}
                 >
-                  <div className="font-semibold">{room.name}</div>
+                  <div className="font-semibold">{room.name} (Floor {room.floor})</div>
                   <div className="text-sm text-gray-600">
                     {room.description}
                   </div>
                   <div className="text-xs text-gray-400 mt-1 capitalize">
                     {room.category}
                   </div>
+
                 </Card>
               );
             })}

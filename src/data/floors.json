@@ -1,55 +1,693 @@
 [
-    {
-        "name": "Floor 3",
-        "slug": "floor3",
-        "path": "/maps/floor3.svg",
-        "description": "The third floor of the building, featuring various rooms and facilities.",
-        "rooms": [
-            {
-                "id": "r210",
-                "name": "Classroom 210",
-                "description": "A large room equipped for meetings and presentations.",
-                "category": "classroom"
-            },
-            {
-                "id": "r300",
-                "name": "Classroom 300",
-                "description": "A spacious classroom designed for lectures and group work.",
-                "category": "classroom"
-            },
-            {
-                "id": "r301",
-                "name": "Classroom 301",
-                "description": "A modern classroom equipped with multimedia facilities.",
-                "category": "classroom"
-            },
-            {
-                "id": "r302",
-                "name": "Classroom 302",
-                "description": "A classroom suitable for workshops and collaborative sessions.",
-                "category": "classroom"
-            },
-            {
-                "id": "r303",
-                "name": "Classroom 303",
-                "description": "A flexible classroom space for various academic activities.",
-                "category": "classroom"
-            }
-            
-        ]
-    },
-    {
-        "name": "Floor 4",
-        "slug": "floor4",
-        "path": "/maps/floor4.svg",
-        "description": "The fourth floor of the building, featuring additional classrooms and facilities.",
-        "rooms": [
-            {
-                "id": "r401",
-                "name": "Classroom 401",
-                "description": "A modern classroom with advanced teaching tools.",
-                "category": "classroom"
-            }
-        ]
-    }
+  {
+    "name": "Floor B1",
+    "slug": "floorb1",
+    "path": "/maps/floorb1.svg",
+    "description": "The basement floor (B1) of the building, featuring classrooms and special purpose rooms.",
+    "rooms": [
+      {
+        "id": "r006",
+        "name": "Room 006",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r001",
+        "name": "Room 001",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r025",
+        "name": "Room 025",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r026",
+        "name": "Room 026",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r027",
+        "name": "Room 027",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r5",
+        "name": "Room 5",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r6",
+        "name": "Room 6",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r10",
+        "name": "Room 10",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r11",
+        "name": "Room 11",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r012",
+        "name": "Room 012",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r013",
+        "name": "Room 013",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r014",
+        "name": "Room 014",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r016",
+        "name": "Room 016",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r017",
+        "name": "Room 017",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r018",
+        "name": "Room 018",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r018a",
+        "name": "Room 018a",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r019",
+        "name": "Room 019",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "rh1",
+        "name": "Room H1",
+        "description": "Basement hallway room.",
+        "category": "hallway",
+        "floor": "b1"
+      },
+      {
+        "id": "rh2",
+        "name": "Room H2",
+        "description": "Basement hallway room.",
+        "category": "hallway",
+        "floor": "b1"
+      },
+      {
+        "id": "rh3",
+        "name": "Room H3",
+        "description": "Basement hallway room.",
+        "category": "hallway",
+        "floor": "b1"
+      },
+      {
+        "id": "rh4",
+        "name": "Room H4",
+        "description": "Basement hallway room.",
+        "category": "hallway",
+        "floor": "b1"
+      },
+      {
+        "id": "r01",
+        "name": "Room 01",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r02",
+        "name": "Room 02",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r03",
+        "name": "Room 03",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r04",
+        "name": "Room 04",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r06",
+        "name": "Room 06",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r03ОП",
+        "name": "Room 03(ОП)",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      },
+      {
+        "id": "r02ОП",
+        "name": "Room 02(ОП)",
+        "description": "Basement level room.",
+        "category": "classroom",
+        "floor": "b1"
+      }
+    ]
+  },
+  {
+    "name": "Floor 1",
+    "slug": "floor1",
+    "path": "/maps/floor1.svg",
+    "description": "The first floor of the building, featuring various classrooms and facilities.",
+    "rooms": [
+      {
+        "id": "r101",
+        "name": "Classroom 101",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r102",
+        "name": "Classroom 102",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r103",
+        "name": "Classroom 103",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r104",
+        "name": "Classroom 104",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r105",
+        "name": "Classroom 105",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r106",
+        "name": "Classroom 106",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r107",
+        "name": "Classroom 107",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r108",
+        "name": "Classroom 108",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r109",
+        "name": "Classroom 109",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r110",
+        "name": "Classroom 110",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r111",
+        "name": "Classroom 111",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r112",
+        "name": "Classroom 112",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r113",
+        "name": "Classroom 113",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r114",
+        "name": "Classroom 114",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r115",
+        "name": "Classroom 115",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r116",
+        "name": "Classroom 116",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r117",
+        "name": "Classroom 117",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r118",
+        "name": "Classroom 118",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r119",
+        "name": "Classroom 119",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r120",
+        "name": "Classroom 120",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r121",
+        "name": "Classroom 121",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r121a",
+        "name": "Classroom 121a",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r122",
+        "name": "Classroom 122",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r123",
+        "name": "Classroom 123",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r126",
+        "name": "Classroom 126",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r127",
+        "name": "Classroom 127",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      },
+      {
+        "id": "r128",
+        "name": "Classroom 128",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "1"
+      }
+    ]
+  },
+  {
+    "name": "Floor 2",
+    "slug": "floor2",
+    "path": "/maps/floor2.svg",
+    "description": "The second floor of the building, featuring various classrooms and facilities.",
+    "rooms": [
+      {
+        "id": "r201",
+        "name": "Classroom 201",
+        "description": "A spacious classroom designed for lectures and group activities.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r202",
+        "name": "Classroom 202",
+        "description": "A modern classroom equipped with multimedia facilities.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r203",
+        "name": "Classroom 203",
+        "description": "A flexible classroom space for various academic activities.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r204",
+        "name": "Classroom 204",
+        "description": "A classroom suitable for workshops and collaborative sessions.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r205",
+        "name": "Classroom 205",
+        "description": "A large room equipped for meetings and presentations.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r206",
+        "name": "Classroom 206",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r207",
+        "name": "Classroom 207",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r208",
+        "name": "Classroom 208",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r209",
+        "name": "Classroom 209",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r210",
+        "name": "Classroom 210",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r211",
+        "name": "Classroom 211",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r212",
+        "name": "Classroom 212",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r213",
+        "name": "Classroom 213",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r214",
+        "name": "Classroom 214",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r215",
+        "name": "Classroom 215",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r216",
+        "name": "Classroom 216",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r217",
+        "name": "Classroom 217",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r218",
+        "name": "Classroom 218",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r219",
+        "name": "Classroom 219",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r220",
+        "name": "Classroom 220",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r221",
+        "name": "Classroom 221",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r222",
+        "name": "Classroom 222",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r223",
+        "name": "Classroom 223",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r223a",
+        "name": "Classroom 223a",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r224",
+        "name": "Classroom 224",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r225",
+        "name": "Classroom 225",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r226",
+        "name": "Classroom 226",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r227",
+        "name": "Classroom 227",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r228",
+        "name": "Classroom 228",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r229",
+        "name": "Classroom 229",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r230",
+        "name": "Classroom 230",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      },
+      {
+        "id": "r231",
+        "name": "Classroom 231",
+        "description": "A classroom for various academic purposes.",
+        "category": "classroom",
+        "floor": "2"
+      }
+    ]
+  },
+  {
+    "name": "Floor 3",
+    "slug": "floor3",
+    "path": "/maps/floor3.svg",
+    "description": "The third floor of the building, featuring various rooms and facilities.",
+    "rooms": [
+      {
+        "id": "r210f3",
+        "name": "Classroom 210",
+        "description": "A large room equipped for meetings and presentations.",
+        "category": "classroom",
+        "floor": "3"
+      },
+      {
+        "id": "r300",
+        "name": "Classroom 300",
+        "description": "A spacious classroom designed for lectures and group work.",
+        "category": "classroom",
+        "floor": "3"
+      },
+      {
+        "id": "r301",
+        "name": "Classroom 301",
+        "description": "A modern classroom equipped with multimedia facilities.",
+        "category": "classroom",
+        "floor": "3"
+      },
+      {
+        "id": "r302",
+        "name": "Classroom 302",
+        "description": "A classroom suitable for workshops and collaborative sessions.",
+        "category": "classroom",
+        "floor": "3"
+      },
+      {
+        "id": "r303",
+        "name": "Classroom 303",
+        "description": "A flexible classroom space for various academic activities.",
+        "category": "classroom",
+        "floor": "3"
+      }
+    ]
+  },
+  {
+    "name": "Floor 4",
+    "slug": "floor4",
+    "path": "/maps/floor4.svg",
+    "description": "The fourth floor of the building, featuring additional classrooms and facilities.",
+    "rooms": [
+      {
+        "id": "r401",
+        "name": "Classroom 401",
+        "description": "A modern classroom with advanced teaching tools.",
+        "category": "classroom",
+        "floor": "4"
+      }
+    ]
+  }
 ]
