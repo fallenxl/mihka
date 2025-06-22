@@ -23,51 +23,56 @@ export function SVGRender({ svg: Map }: { svg: any }) {
     });
   };
 
-  useEffect(() => {
-    const svgContainer = svgRef.current;
-    if (!svgContainer) return;
+useEffect(() => {
+  const svgContainer = svgRef.current;
+  if (!svgContainer) return;
 
-    const onClick = (e: Event) => {
-
-      const target = e.target as HTMLElement;
-      if (!target || !svgContainer.contains(target)) return;
-      if (target.classList.contains("room")) {
-        const roomId = target.getAttribute("id");
-        if (roomId) {
-          if (selectedRoom && selectedRoom.id === roomId) {
-            // If the clicked room is already selected, clear the selection
-            setSelectedRoomById("");
-            return;
-          }
-          const roomData = getRoomById(roomId);
-          if (roomData) {
-            
-            setSelectedRoomById(roomId);
-            cleanUp();
-            target.classList.add("room-selected");
-          }
+  const onClick = (e: Event) => {
+    const target = e.target as HTMLElement;
+    if (!target || !svgContainer.contains(target)) return;
+    if (target.classList.contains("room")) {
+      const roomId = target.getAttribute("id");
+      if (roomId) {
+        if (selectedRoom && selectedRoom.id === roomId) {
+          setSelectedRoomById("");
+          return;
+        }
+        const roomData = getRoomById(roomId);
+        if (roomData) {
+          setSelectedRoomById(roomId);
+          cleanUp();
+          target.classList.add("room-selected");
         }
       }
-    };
+    }
+  };
 
+  // 💡 Espera a que el innerHTML se procese
+  const timeout = setTimeout(() => {
     svgContainer.addEventListener("click", onClick);
+  }, 100);
 
-    return () => {
-      svgContainer.removeEventListener("click", onClick);
-      cleanUp();
-    };
+  return () => {
+    clearTimeout(timeout);
+    svgContainer.removeEventListener("click", onClick);
+    cleanUp();
+  };
+}, [svgData]);
 
-  }, [svgData, Map]);
 
   useEffect(() => {
-    if (selectedRoom && svgRef.current) {
+  if (selectedRoom && svgRef.current) {
+    const timeout = setTimeout(() => {
       cleanUp();
-      const roomElement = svgRef.current.querySelector(`#${selectedRoom.id}`);
+      const roomElement = svgRef.current?.querySelector(`#${selectedRoom.id}`);
       if (roomElement) {
         roomElement.classList.add("room-selected");
       }
-    }
-  }, [selectedRoom]);
+    }, 100); // da tiempo a que el DOM procese el innerHTML
+
+    return () => clearTimeout(timeout);
+  }
+}, [selectedRoom, svgData]);
 
   return (
     <>

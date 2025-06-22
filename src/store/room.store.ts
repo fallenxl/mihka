@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import floorsData from "@/data/floors.json";
 
-interface Room {
+export interface Room {
   id: string;
   name: string;
   description: string;
@@ -46,13 +46,19 @@ export const useBuildingStore = create<BuildingState>((set, get) => {
     },
     getRoomsByQuery: (query) => {
       const lowerQuery = query.toLowerCase();
-      return get().selectedFloor.rooms.filter((room) =>
-        room.name.toLowerCase().includes(lowerQuery)
-      );
+      return floorsData
+        .flatMap((floor) => floor.rooms)
+        .filter((room) =>
+          room.name.toLowerCase().includes(lowerQuery) ||
+          room.description.toLowerCase().includes(lowerQuery) ||
+          (room.category && room.category.toLowerCase().includes(lowerQuery))
+        );
     },
     setSelectedRoomById: (roomId) => {
-      const floor = get().selectedFloor;
-      const room = floor.rooms.find((r) => r.id === roomId);
+
+      const room = floorsData
+        .flatMap((floor) => floor.rooms)
+        .find((r) => r.id === roomId);
       if (room) {
         set({ selectedRoom: room, openRoomInfo: true });
 
